@@ -16,7 +16,7 @@ class Config {
     private function __construct() {
         // Domain-Sprachzuordnung und Base-URLs
         $this->domainConfigMap = [
-            // Testumgebung
+            // Testumgebung all-inkl
             'nauticstore24.jackydoo.at'      => [
                 'lang' => 'de',
                 'base_url' => 'https://nauticstore24.jackydoo.at'
@@ -24,6 +24,16 @@ class Config {
             'nauticstore24.jackydoo.com'   => [
                 'lang' => 'en',
                 'base_url' => 'https://nauticstore24.jackydoo.com'
+            ],
+
+            // Testumgebung local
+            'nauticstorefrontend.at'                 => [
+                'lang' => 'de',
+                'base_url' => 'http://nauticstorefrontend.at'
+            ],
+            'nauticstorefrontend.com'                => [
+                'lang' => 'en',
+                'base_url' => 'http://nauticstorefrontend.com'
             ],
 
             // Produktionsumgebung
