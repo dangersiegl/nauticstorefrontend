@@ -20,6 +20,7 @@ jobs:
           protocol: ftp
           server-dir: ${{ secrets.REMOTE_PATH }}
           local-dir: ./        # <— falls dein Webroot z.B. /public ist. Sonst: ./
+          timeout: 120000
           state-name: .ftp-deploy-sync-state.json
           log-level: standard
           exclude: |
