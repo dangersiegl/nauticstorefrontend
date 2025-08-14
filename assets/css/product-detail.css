@@ -1,0 +1,823 @@
+/* =========================================================
+   product-detail.css – Komplett neu strukturiert
+   ========================================================= */
+
+/* Allgemeiner Container */
+.product-detail-page {  
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px 20px 20px;
+}
+
+/* Breadcrumb */
+.product-detail-breadcrumb {
+    font-size: 14px;
+    margin-bottom: 10px;
+    color: #777;
+}
+.product-detail-breadcrumb a {
+    color: #005580;
+    text-decoration: none;
+}
+.product-detail-breadcrumb a:hover {
+    text-decoration: underline;
+}
+
+/* Titel & Brand */
+.product-detail-product-title {
+    font-size: 28px;
+    font-weight: bold;
+    color: #333;
+    margin: 5px 0 15px;
+}
+.product-detail-product-brand {
+    font-size: 14px; 
+    color: #666;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+}
+
+/* Wrapper für Hauptinhalt und Sidebar */
+.product-detail-wrapper {
+    display: grid;
+    grid-template-columns: 2.5fr 0.5fr; /* Linke Spalte 2 Teile, rechte 1 Teil */
+    gap: 30px;
+    margin-bottom: 40px;
+}
+@media (max-width: 999px) {
+    .product-detail-wrapper {
+        grid-template-columns: 1fr;
+    }
+
+    .product-detail-sidebar {
+        display: none;
+    }
+}
+
+/* Rechte Spalte – Sidebar (weitere Produkte) */
+.product-detail-sidebar {
+    padding: 0 10px;
+    border-left: 1px solid #ddd;
+    border-radius: 4px;
+}
+.product-detail-sidebar h2 {
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+.related-products {
+    display: flex;
+    flex-direction: column;
+}
+.related-product {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px;
+    text-align: center;
+    background-color: #fff;
+}
+.related-product img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+.related-product h3 {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+.related-product p {
+    font-size: 14px;
+    color: #005580;
+}
+
+/* Bereich: Produkt-Top (Bilder & Infos) */
+.product-detail-product-detail-top {
+    display: grid;
+    grid-template-columns: 1fr 1fr;  /* linke Spalte: Bilder, rechte Spalte: Infos */
+    gap: 30px;
+}
+@media (max-width: 768px) {
+    .product-detail-product-detail-top {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Produktgalerie (Bilder) */
+.product-detail-product-gallery {
+    width: 100%;
+    box-sizing: border-box;
+}
+.product-detail-main-image {
+    width: 100%;
+    aspect-ratio: 1 / 1;  /* immer quadratisch */
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.product-detail-main-image img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+/* Thumbnails (Desktop) */
+.product-detail-thumbnail-row {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+.product-detail-thumbnail-row .thumb {
+    width: 60px;
+    height: 60px;
+    overflow: hidden;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+.product-detail-thumbnail-row .thumb img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+.product-detail-thumbnail-row .thumb:hover {
+    transform: scale(1.05);
+}
+
+/* Mobile – Duplikate für Hauptbild & Thumbnails */
+.product-detail-main-image-mobile,
+.product-detail-thumbnail-row-mobile {
+    display: none;
+}
+@media (max-width: 768px) {
+    .product-detail-product-gallery {
+        display: none;
+    }
+    .product-detail-main-image-mobile,
+    .product-detail-thumbnail-row-mobile {
+        display: block;
+    }
+    .product-detail-main-image-mobile img {
+        width: 100%;
+        max-width: 300px;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+    }
+    .product-detail-thumbnail-row-mobile {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 10px;
+    }
+    .product-detail-thumbnail-row-mobile .thumb {
+        width: 50px;
+        height: 50px;
+        overflow: hidden;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    .product-detail-thumbnail-row-mobile .thumb img {
+        width: 100%;
+        object-fit: cover;
+    }
+}
+
+/* Produktinfos (rechts im oberen Detailbereich) */
+.product-detail-product-info {
+    display: flex;
+    flex-direction: column;
+}
+.product-detail-info-header {
+    margin: 0;
+}
+.product-detail-product-shortdesc {
+    font-size: 15px;
+    color: #555;
+    padding-bottom:20px;
+}
+.product-detail-product-price {
+    font-size: 26px;
+    font-weight: bold;
+    color: #005580;
+}
+.product-detail-product-price .product-deatil-price-unit {
+    font-size: 16px;
+    color: #333;
+    margin-left: 5px;
+}
+.product-detail-product-variants,
+.product-detail-quantity-box {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 10px 0;
+}
+.product-detail-product-variants label,
+.product-detail-quantity-box label {
+    font-weight: 500;
+    color: #333;
+}
+#product-detail-variant-select,
+#product-detail-qty {
+    padding: 6px;
+    font-size: 14px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+.product-detail-btn.btn-primary.add-to-cart {
+    background-color: #003055;
+    border: none;
+    color: #fff;
+    padding: 12px 18px;
+    margin: 15px 0 0 0;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+.product-detail-btn.btn-primary.add-to-cart:hover {
+    background-color: #005580;
+}
+.product-detail-availability-info i {
+    color: #003055;
+    margin-right: 5px;
+}
+.product-detail-availability-info p {
+    font-size: 14px;
+    color: #444;
+}
+
+.product-detail-product-data-table {
+    margin-bottom: 30px;
+}
+
+.product-detail-product-data-table table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+/* Standard: 1 Spalte (unter 1000px) */
+.product-detail-product-data-table tbody {
+    display: block;
+}
+
+.product-detail-product-data-table tr {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+/* Zwei Spalten ab 1000px */
+@media (min-width: 1000px) {
+    .product-detail-product-data-table tr {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+}
+
+.product-detail-product-data-table th,
+.product-detail-product-data-table td {
+    padding: 8px;
+    border: 1px solid #ddd;
+    vertical-align: top;
+}
+
+.product-detail-product-data-table th {
+    background-color: #f8f8f8;
+    text-align: left;
+}
+
+/* Empfehlungen */
+.product-detail-product-recommendations {
+    margin-bottom: 40px;
+}
+.product-detail-product-recommendations h3 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: #005580;
+}
+.product-detail-product-recommendations ul {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.product-detail-product-recommendations li {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 160px;
+    text-align: center;
+    padding: 10px;
+    background-color: #fff;
+    transition: transform 0.3s;
+}
+.product-detail-product-recommendations li:hover {
+    transform: translateY(-3px);
+}
+.product-detail-product-recommendations .product-detail-rec-name {
+    font-size: 14px;
+    margin: 5px 0;
+    color: #005580;
+}
+.product-detail-product-recommendations .product-detail-rec-price {
+    font-size: 14px;
+    color: #333;
+}
+.product-detail-product-recommendations img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+}
+
+/* Beschreibung & Sicherheit */
+.product-detail-product-description,
+.product-detail-product-safety {
+    margin-bottom: 40px;
+}
+.product-detail-product-description h3,
+.product-detail-product-safety h3 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    color: #005580;
+    width: 100%;
+    margin-top: 20px;
+    border-bottom: 1px solid #666; /* Dünner blauer Strich */
+    padding-bottom: 5px; /* Abstand zwischen Text und Strich */
+}
+
+.product-detail-product-description p,
+.product-detail-product-safety p {
+    font-size: 15px;
+    line-height: 1.5;
+    color: #444;
+}
+
+/* Zubehör-Slider */
+.product-detail-product-accessories {
+    margin-bottom: 40px;
+}
+.product-detail-product-accessories h3 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    color: #005580;
+    border-bottom: 1px solid #666; /* Dünner blauer Strich */
+    padding-bottom: 5px; /* Abstand zwischen Text und Strich */
+}
+.product-detail-accessories-slider {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 20px;
+}
+.product-detail-accessory-item {
+    position: relative;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+    text-align: center;
+    padding: 10px;
+    transition: transform 0.3s;
+}
+.product-detail-accessory-item:hover {
+    transform: translateY(-3px);
+}
+.product-detail-accessory-item img {
+    max-width: 100%;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+.product-detail-accessory-item h3 {
+    font-size: 14px;
+    color: #003055;
+    margin-bottom: 5px;
+    border-bottom: 1px solid #666; /* Dünner blauer Strich */
+    padding-bottom: 5px; /* Abstand zwischen Text und Strich */
+}
+.product-detail-accessory-item .product-detail-old-price {
+    font-size: 13px;
+    color: #777;
+    text-decoration: line-through;
+    margin-right: 5px;
+}
+.product-detail-accessory-item .product-detail-current-price {
+    font-size: 15px;
+    color: #005580;
+    font-weight: bold;
+}
+.product-detail-discount-label {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: #d9534f;
+    color: #fff;
+    font-size: 12px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    transform: rotate(-10deg);
+}
+
+/* Kundenbewertungen */
+.product-detail-customer-reviews {
+    margin-bottom: 40px;
+}
+.product-detail-customer-reviews h3 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    color: #005580;
+    border-bottom: 1px solid #666; /* Dünner blauer Strich */
+    padding-bottom: 5px; /* Abstand zwischen Text und Strich */
+}
+
+.product-detail-review-summary {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+.product-detail-review-summary label {
+    font-weight: bold;
+}
+.product-detail-review-summary select {
+    padding: 6px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+.product-detail-review-list .product-detail-review-item {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 20px;
+    background-color: #fff;
+}
+.product-detail-review-item .product-detail-review-header {
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #333;
+}
+.product-detail-review-rating {
+    margin-bottom: 5px;
+}
+.product-detail-review-rating i {
+    color: #ffc107;
+    margin-right: 2px;
+}
+.product-detail-review-comment {
+    font-size: 14px;
+    color: #555;
+}
+
+/* Responsive Anpassungen für Empfehlungen */
+@media (max-width: 768px) {
+    .product-detail-product-recommendations ul {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .product-detail-product-recommendations li {
+        width: 100%;
+    }
+}
+
+/* Formularelemente: Varianten & Menge */
+.product-detail-product-variants select,
+.product-detail-quantity-box input[type="number"] {
+    height: 32px;
+    padding: 0 10px;
+    font-size: 14px;
+    font-family: inherit;
+    color: #333;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* Modal & Image Slider */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 9000;
+    padding-top: 60px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.9);
+}
+.modal .close {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.modal .close:hover,
+.modal .close:focus {
+    color: #bbb;
+}
+.modal-content {
+    position: relative;
+    margin: auto;
+    max-width: 800px;
+}
+.mySlides {
+    display: none;
+}
+.mySlides img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: #003055;
+    font-weight: bold;
+    font-size: 30px;
+    user-select: none;
+    transition: 0.3s;
+    z-index: 9100;
+    text-shadow: 2px 2px 2px rgba(255,255,255,0.5);
+}
+.prev:hover, .next:hover {
+    color: #005580;
+}
+.prev {
+    left: 0;
+}
+.next {
+    right: 0;
+}
+
+/* Neuer Preisbereich in einer Box */
+.product-detail-price-box {
+    background-color: #f0f0f0;  /* Hellgrauer Hintergrund */
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 4px;
+}
+
+.product-detail-old-price .prefix {
+    /* Für "statt" keine Durchstreichung */
+    text-decoration: none;
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+  
+  .product-detail-old-price .price {
+    /* Nur der Preis wird durchgestrichen */
+    text-decoration: line-through;
+    color: #666;
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+ 
+/* Aktueller Preis & Einheit */
+.product-detail-current-price {
+    font-size: 26px;
+    font-weight: bold;
+    color: #005580;
+    margin-bottom: 5px;
+}
+.product-detail-price-unit {
+    font-size: 22px;
+    color: #005580;
+    margin-left: 5px;
+}
+
+/* MwSt. & Versandhinweis */
+.product-detail-tax-shipping {
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+/* Einsparungen */
+.product-detail-savings {
+    font-size: 16px;
+    color: #25a14b;
+}
+
+/* Verfügbarkeitsinfo (innerhalb der Box) */
+.product-detail-price-box .product-detail-availability-info {
+    font-size: 14px;
+    color: #444;
+}
+
+.variant-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.variant-button {
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.variant-button.active {
+    background-color: #005580;
+    color: #fff;
+}
+
+.variant-button:disabled {
+    background-color: #f0f0f0;
+    cursor: not-allowed;
+}
+
+.product-detail-artikelnummer-box {
+    font-size: 12px;
+    font-weight: bold;
+    color: #333;
+    margin-top: 5px;
+}
+.product-detail-artikelnummer-box label {
+    font-weight: 500;
+    color: #555;
+    margin-right: 5px;
+}
+
+/* Lagerstandsanzeige - Stil für den Text */
+.stock-status-detail {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Abstand zwischen Text und Punkt */
+    font-size: 14px; /* Schriftgröße */
+    margin-top: 10px; /* Abstand nach oben */
+    font-weight: bold;
+}
+
+/* Lagerstandsanzeige - Allgemeiner Stil für die Punkte */
+.stock-status-detail .status-dot {
+    width: 12px; /* Größe des Punkts */
+    height: 12px; /* Größe des Punkts */
+    border-radius: 50%; /* Macht den Punkt rund */
+    display: inline-block;
+}
+
+/* Container für Verfügbarkeitsanzeige und Frage-Button */
+.stock-status-detail-container {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Abstand zwischen Lagerstand und Button */
+    margin-top: 10px;
+}
+
+/* Styling für den Button */
+/* Container für Verfügbarkeitsanzeige und Button */
+.stock-status-detail-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Verfügbarkeitsanzeige links, Button rechts */
+    width: 100%;
+    margin-top: 10px;
+}
+
+/* Styling für den Button */
+.question-button {
+    background-color: #005580;
+    color: #fff;
+    border: none;
+    padding: 6px 12px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background 0.3s ease-in-out;
+    white-space: nowrap; /* Verhindert Umbrüche */
+    margin-left: auto; /* Schiebt den Button nach rechts */
+}
+
+.question-button:hover {
+    background-color: #003955;
+}
+
+/* Container, der den vertikalen Slider umschließt und nur zwei Items gleichzeitig zeigt */
+.related-products-slider-container {
+    position: relative;
+    height: 550px;  /* Beispielwert: Höhe so wählen, dass genau zwei kleine Produkt-Items sichtbar sind */
+    overflow: hidden;
+}
+
+/* Der eigentliche Slider, der per translateY verschoben wird */
+.related-products-slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    transition: transform 0.5s ease;
+}
+
+/* Pfeile für die Navigation */
+.vertical-slider-arrow {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    background-color: #003055;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.up-arrow {
+    top: 5px;
+}
+
+.down-arrow {
+    bottom: 5px;
+}
+
+.video-container {
+    max-width: 700px; /* Maximale Breite setzen */
+    width: 100%; /* Volle Breite darunter */
+    aspect-ratio: 16 / 9; /* Sicherstellen, dass das Seitenverhältnis erhalten bleibt */
+}
+
+.video-container iframe {
+    width: 100%;
+    height: 100%;
+}
+
+/* Empfehlungen-Slider – gesamter Bereich */
+.product-recommendations-slider {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.product-recommendations-slider h3 {
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    color: #005580;
+    border-bottom: 1px solid #666; /* Dünner blauer Strich */
+    padding-bottom: 5px; /* Abstand zwischen Text und Strich */
+}
+
+/* Container, der den Slider umschließt */
+.slider-container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+
+/* Slider-Track: Hier stehen alle Produkt-Items in einer Reihe */
+.slider-track {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+/* Einzelne Slider-Items */
+.slider-item {
+    flex: 0 0 auto;
+    width: 170px;         /* Feste Breite für jedes kleine Produkt – passe diesen Wert ggf. an */
+    margin-right: 15px;   /* Abstand zwischen den Items */
+}
+
+/* Navigationspfeile */
+.slider-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 48, 85, 0.8);
+    color: #fff;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.left-arrow {
+    left: 10px;
+}
+
+.right-arrow {
+    right: 10px;
+}
+
+/* Für mobile Geräte – evtl. kleinere Slider-Items */
+@media (max-width: 768px) {
+    .slider-item {
+        width: 200px;
+        margin-right: 10px;
+    }
+}

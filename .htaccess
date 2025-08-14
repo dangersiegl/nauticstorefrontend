@@ -1,0 +1,15 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Optional: RewriteBase anpassen, falls das Projekt in einem Unterordner liegt
+    # RewriteBase /myproject
+
+    # Bedingung: Wenn die angeforderte Ressource KEINE existierende Datei ist
+    RewriteCond %{REQUEST_FILENAME} !-f
+
+    # Bedingung: Wenn die angeforderte Ressource KEIN existierendes Verzeichnis ist
+    RewriteCond %{REQUEST_FILENAME} !-d
+
+    # Weiterleitung: Alle anderen Anfragen an index.php weiterleiten
+    RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]
+</IfModule>

@@ -1,0 +1,818 @@
+/* Container */
+.account-overview.container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    font-family: Roboto, sans-serif;
+    line-height: 1.6;
+    color: #333;
+  }
+
+/* ===== Tabs ===== */
+.account-tabs {
+  display: flex;
+  border-bottom: 2px solid #ddd;
+  
+}
+.tab-button {
+  flex:1;
+  padding:.75rem;
+  background:none;
+  border:1px solid #ddd;
+  border-bottom:2px solid transparent;
+  font-weight:600;
+  cursor:pointer;
+  transition:border-color .2s;
+  border-radius: 3px 3px 0 0;
+  font-size: 1rem;
+}
+.tab-button.active {
+  border-bottom-color:#004974;
+  color:white;
+  background-color:#004974;
+
+}
+
+/* ===== Panels ===== */
+.tab-content {
+  border:1px solid #ddd;
+  border-top:none;
+  border-radius:0 0 4px 4px;
+  background:#fff;
+  padding:1.5rem 2rem;
+}
+.tab-panel { display:none; }
+.tab-panel.active { display:block; }
+
+/* Damit auch wirklich in beiden Tabs der Inhalt bündig beginnt: */
+.tab-panel .form-row {
+  /*max-width: 600px;  /* Optional: begrenzt die Formularbreite */
+  margin: 0 auto;    /* zentriert auf großen Bildschirmen */
+}
+
+/* ===== Forms ===== */
+.account-page .form-row {
+  margin-bottom:1rem;
+}
+.account-page label {
+  display:block;
+  margin-bottom:.25rem;
+  font-weight:500;
+}
+.account-page label:not(.radio-inline) {
+  display: block;
+}
+.account-page input[type="text"],
+.account-page input[type="email"],
+.account-page input[type="password"],
+.account-page select,
+.address-card select {
+  width:100%;
+  padding:.5rem;
+  border:1px solid #ccc;
+  border-radius:3px;
+  font-size:1rem;
+}
+.account-card {
+  flex: 1;
+  min-width: 300px;
+  background: #fff;
+  border-radius: 0.5rem;
+  padding: 2rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+.account-card h2 {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.street-row {
+  display:flex;
+  gap:2rem;
+}
+.zip-city-row {
+  display:flex;
+  gap:2rem;
+}
+/* .radio-inline darf inline bleiben */
+.account-page .radio-inline {
+  display: inline-block;      /* nebeneinander */
+  margin-right: 1.5rem;        /* Abstand zwischen den Optionen */
+  font-weight: 450;            /* etwas leichter als Überschriften */
+  cursor: pointer;
+}
+
+/* Abstand zwischen Kreis und Text */
+.account-page .radio-inline input[type="radio"] {
+  vertical-align: middle;
+  margin-right: 0.3rem;
+  margin-top: 0rem;         /* damit der Text nicht so hoch steht */
+}
+
+.btn-primary {
+  background:#004974;
+  color:#fff;
+  padding:.6rem 1.2rem;
+  border:none;
+  border-radius:3px;
+  font-size:1rem;
+  cursor:pointer;
+}
+.btn-primary:hover {
+  background:#003354;
+}
+
+/* ===== Alerts ===== */
+.alert-error {
+  background:#fdecea;
+  color:#611a15;
+  border:1px solid #611a15;
+  padding:.75rem;
+  margin-bottom:1rem;
+  border-radius:3px;
+}
+.alert-error ul {
+  margin:0;
+  padding-left:1.2rem;
+}
+
+.alert-success {
+  background:#e6ffed;
+  color:#34c759;
+  border:1px solid #34c759;
+  padding:.75rem;
+  margin-bottom:1rem;
+  border-radius:3px;
+}
+
+/* ===== Forgot Link ===== */
+.forgot-link {
+  margin-top:.5rem;
+}
+.forgot-link a {
+  color:#004974;
+  font-size:.9rem;
+}
+
+/* ------------------------------------------
+   Account Overview Seite
+------------------------------------------- */
+/* Container & Grid */
+.account-overview {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  gap: 2rem;
+  margin: 2rem 0;
+}
+@media (max-width: 800px) {
+  .account-overview {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Sidebar */
+.account-sidebar {
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 1.5rem;
+}
+.sidebar-title {
+  margin: 0 0 1rem;
+  font-size: 1.25rem;
+  color: #004974;
+}
+.sidebar-nav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.sidebar-nav li + li {
+  margin-top: 0.5rem;
+}
+.sidebar-nav a {
+  color: #333;
+  text-decoration: none;
+  font-size: 1rem;
+  display: block;
+  padding: 0.25rem 0;
+}
+.sidebar-nav a.active,
+.sidebar-nav a:hover {
+  color: #004974;
+  font-weight: 600;
+}
+
+/* Main-Content Wrapper */
+.account-main {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.account-main h2 {
+  padding:0;
+  margin:0;
+}
+
+/* Welcome- / Recent Orders Card */
+.welcome-card,
+.empty-box {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 1.5rem;
+}
+.welcome-card h2 {
+  margin-top: 0;
+  color: #004974;
+}
+.section-title {
+  margin: 1rem 0 0.5rem;
+  font-size: 1.1rem;
+  color: #333;
+}
+.empty-box {
+  background: #f0f0f0;
+  color: #666;
+}
+.orders-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+.orders-table th,
+.orders-table td {
+  border: 1px solid #eee;
+  padding: 0.75rem;
+}
+.orders-table th {
+  background: #f5f5f5;
+  text-align: left;
+}
+
+/* Button */
+.btn-primary {
+  background: #004974;
+  color: #fff;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  text-decoration: none;
+}
+.btn-primary:hover {
+  background: #003354;
+}
+.btn-primary.small {
+  padding: 0.4rem 0.8rem;
+  font-size: 0.9rem;
+}
+
+/* Grid für Adressen und Newsletter */
+.overview-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Adress-Karten */
+.address-card {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 1.5rem;
+}
+.address-card .card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.address-card .card-header h4 {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #004974;
+}
+.address-card .card-header i {
+  color: #004974;
+  font-size: 1.4rem;
+}
+.address-card .empty-box {
+  background: #f9f9f9;
+  color: #999;
+  padding: 0.75rem;
+  border-radius: 3px;
+}
+.address-card p {
+  margin: 1rem 0;
+  line-height: 1.4;
+}
+.address-card .card-link {
+  color: #004974;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/* Newsletter-Karte */
+.newsletter-card {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 1.5rem;
+}
+.newsletter-card h4 {
+  margin-top: 0;
+  font-size: 1.1rem;
+  color: #004974;
+}
+/* Newsletter-Formular untereinander statt nebeneinander */
+.newsletter-card form {
+  display: block;
+  margin: 1rem 0;
+}
+
+.newsletter-card form label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.newsletter-card form input[type="email"] {
+  display: block;
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 0.75rem;
+}
+
+.newsletter-card form .btn-primary.small {
+  display: inline-block;
+  margin-top: 0;
+}
+
+
+.newsletter-card input[type="email"] {
+  flex: 1;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.newsletter-card .btn-primary.small {
+  margin-left: auto;
+}
+.newsletter-card .card-link {
+  font-size: 0.9rem;
+  color: #004974;
+  text-decoration: none;
+}
+
+/* Inline-Alert unter dem E-Mail-Feld */
+.email-check-msg {
+  display: none;              /* erst anzeigen, wenn sichtbar */
+  border: 1px solid #f5c6cb;
+  background: #fdecea;
+  color: #611a15;
+  padding: 0.75rem;
+  margin-top: 0.5rem;
+  border-radius: 3px;
+  font-size: 0.9rem;
+}
+.email-check-msg.ok {
+  border-color: #c6f5da;
+  background: #e6ffed;
+  color: #216e30;
+}
+
+/* Fieldset/Legend */
+.account-page fieldset {
+  border: 1px solid #ddd;
+  padding: 1rem;
+  border-radius: 4px;
+}
+.account-page legend {
+  font-weight: 600;
+  padding: 0 .5rem;
+}
+
+/* damit auf der Settings-Seite das gleiche Styling wie bei account-page greift */
+.account-overview .form-row {
+  margin-bottom: 1rem;
+}
+.account-overview label {
+  display: block;
+  margin-bottom: .25rem;
+  font-weight: 500;
+}
+.account-overview input[type="text"],
+.account-overview input[type="email"],
+.account-overview input[type="password"] {
+  width: 100%;
+  padding: .5rem;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  font-size: 1rem;
+}
+.account-overview fieldset {
+  border: 1px solid #ddd;
+  padding: 1rem;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+.account-overview legend {
+  font-weight: 600;
+  padding: 0 .5rem;
+}
+
+.overview-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
+  gap: 1.5rem;
+}
+
+.address-card {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 1.5rem;
+}
+.address-card .card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.address-card .card-header h4 {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #004974;
+}
+.address-card .card-header i {
+  color: #004974;
+  font-size: 1.4rem;
+}
+.address-card p {
+  margin: 1rem 0;
+  line-height: 1.4;
+}
+.address-card .empty-box {
+  background: #f9f9f9;
+  color: #999;
+  padding: 0.75rem;
+  border-radius: 3px;
+}
+.address-card .card-link {
+  color: #004974;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+
+.secret-container {
+  position: relative;
+}
+
+.secret-container input {
+  padding-right: 2.5rem;   /* Platz für den Button */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.secret-container .copy-btn {
+  position: absolute;
+  top: 70%;
+  right: 0.5rem;
+  transform: translateY(-50%);
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 0.2rem;
+  border-radius: 4px;
+  transition: background .2s ease;
+}
+
+.secret-container .copy-btn:hover {
+  background: rgba(0,0,0,0.05);
+}
+
+.secret-container .copy-btn svg {
+  width: 1.25em;
+  height: 1.25em;
+  color: #555;
+}
+
+
+/* Wunschliste – Grid */
+/* 1) Wenn nicht eingeloggt: füllt der Content die volle Breite */
+.wishlist-fullwidth {
+  width: 100%;
+}
+
+/* Hauptbereich in der Sidebar-Ansicht */
+.account-main.wishlist-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Mobile: Sidebar und Content übereinander */
+@media (max-width: 800px) {
+  .account-overview {
+    grid-template-columns: 1fr;
+  }
+}
+
+.wishlist-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 1rem;
+}
+.wl-item-row {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 1.5rem;
+  padding: 2rem 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.product-col {
+  /* kleiner Vorschaubereich */
+  width: 180px;
+}
+
+.details-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Notiz-Bereich rechts (dritte Spalte) */
+.wl-notes {
+  grid-column: 3;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.wl-notes textarea {
+  width: 200px;
+  min-height: 4rem;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  resize: vertical;
+}
+.btn-save-note {
+  align-self: flex-end;
+  background: #007bff;
+  color: #fff;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+/* Aktionen unterhalb Details */
+.wl-actions {
+  grid-column: 2;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Preis-Unterscheidung */
+.wl-price-changed {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.was-price {
+  text-decoration: line-through;
+  color: #888;
+  margin-right: 0.75rem;
+}
+.now-price {
+  color: #e91e63;
+  font-weight: bold;
+}
+
+/* Status-Dots */
+.status-dot {
+  display: inline-block;
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 50%;
+  margin-right: 0.5rem;
+}
+.status-dot.green { background: #4caf50; }
+.status-dot.red   { background: #f44336; }
+
+/* Responsive: mobil = Notiz-Feld unten anordnen */
+@media (max-width: 768px) {
+  .wl-item-row {
+    grid-template-columns: 1fr;
+  }
+  .wl-notes {
+    grid-column: 1;
+    order: 3;
+    width: 100%;
+  }
+  .wl-actions {
+    grid-column: 1;
+    order: 4;
+  }
+}
+
+/* ---------------------------------- */
+/* Gemeinsame Styles für beide Slider */
+/* ---------------------------------- */
+.wl-recently-section,
+.wl-random-section {
+  margin-top: 3rem;
+}
+.wl-section-title {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+/* Der Slider‐Container: horizontale Scrollbar */
+.wl-slider {
+  display: flex;
+  overflow-x: auto;
+  gap: 1rem;
+  padding-bottom: 0.5rem;
+}
+.wl-slider::-webkit-scrollbar {
+  height: 8px;
+}
+.wl-slider::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0,0.2);
+  border-radius: 4px;
+}
+.wl-slider::-webkit-scrollbar-track {
+  background: rgba(0,0,0,0.05);
+}
+
+/* Einzelnes Slider-Item */
+.wl-slider-item {
+  flex: 0 0 160px; /* Breite jedes Items */
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  text-align: center;
+  padding: 0.5rem;
+  transition: box-shadow 0.2s;
+}
+.wl-slider-item:hover {
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+.rw-image {
+  width: 100%;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+.rw-image img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+.rw-name {
+  font-size: 0.9rem;
+  margin-bottom: 0.25rem;
+  height: 2.2rem; /* Zwei Zeilen max */
+  overflow: hidden;
+}
+.rw-price {
+  font-weight: bold;
+  color: #007bff;
+}
+
+/* ---------------------------------- */
+/* Anpassungen für Wishlist-Items oben */
+/* ---------------------------------- */
+.wl-item-row {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1rem;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid #eee;
+}
+.product-col {
+  width: 120px; /* kleines Produkt‐Tile */
+}
+.details-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.wl-name a {
+  color: #007bff;
+  text-decoration: none;
+  font-size: 1.1rem;
+}
+.wl-name a:hover {
+  text-decoration: underline;
+}
+
+/* Meta‐Liste */
+.wl-meta {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.wl-meta li {
+  font-size: 0.9rem;
+  margin-bottom: 0.3rem;
+  line-height: 1.4;
+}
+.wl-price-changed .was-price {
+  text-decoration: line-through;
+  color: #888;
+  margin-right: 0.5rem;
+}
+.wl-price-changed .now-price {
+  color: #e91e63;
+  font-weight: bold;
+}
+
+/* Status‐Dots */
+.status-dot {
+  display: inline-block;
+  width: 0.8rem;
+  height: 0.8rem;
+  border-radius: 50%;
+  margin-right: 0.5rem;
+}
+.status-dot.green { background: #4caf50; }
+.status-dot.red   { background: #f44336; }
+
+/* Notiz‐Feld */
+.wl-notes {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.wl-notes textarea {
+  width: 100%;
+  max-width: 300px; /* Desktop‐Breite */
+  min-height: 60px;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  resize: vertical;
+}
+.btn-save-note {
+  align-self: flex-end;
+  background: #28a745;
+  color: #fff;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+  border-radius: 2px;
+}
+
+/* Aktions‐Buttons */
+.wl-actions {
+  margin-top: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.btn-remove {
+  background: #dc3545;
+  color: #fff;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  cursor: pointer;
+  border-radius: 2px;
+  font-size: 0.9rem;
+}
+.btn-addcart {
+  background: #007bff;
+  color: #fff;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  cursor: pointer;
+  border-radius: 2px;
+  font-size: 0.9rem;
+}
+
+/* Responsive: mobilklein <768px */
+@media (max-width: 768px) {
+  .wl-item-row {
+    display: block;
+    padding: 1rem 0;
+  }
+  .product-col {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+  .details-col {
+    flex-direction: column;
+  }
+  .wl-notes textarea {
+    max-width: 100%;
+  }
+}

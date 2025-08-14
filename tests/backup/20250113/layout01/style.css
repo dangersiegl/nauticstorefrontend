@@ -1,0 +1,833 @@
+/* =======================================
+   Allgemeine Stile
+   ======================================= */
+   body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+    color: #333;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+a {
+    text-decoration: none;
+    color: #005580;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #003055;
+}
+
+/* =======================================
+   Header-Stile
+   ======================================= */
+header {
+    background-color: #fff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+/* ---------- Top-Bar mit drei Abschnitten ---------- */
+.top-bar {
+    background-color: #003055;
+    color: #fff;
+    padding: 10px 0;
+    font-size: 12px;
+}
+
+.top-bar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.left-info, .middle-info, .right-info {
+    flex: 1;
+    text-align: center;
+}
+
+.left-info {
+    text-align: left;
+}
+
+.middle-info {
+    text-align: center;
+}
+
+.right-info {
+    text-align: right;
+}
+
+/* ---------- Hauptheader ---------- */
+.main-header {
+    padding: 20px 0;
+    background-color: #fff;
+}
+
+.main-header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.logo {
+    width: 200px;
+}
+
+.logo img {
+    max-width: 100%;
+    height: auto;
+}
+
+.search-bar {
+    flex-grow: 1;
+    margin: 0 20px;
+    position: relative;
+}
+
+.search-bar form {
+    display: flex;
+}
+
+.search-bar input {
+    flex-grow: 1;
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px 0 0 5px;
+    font-size: 16px;
+}
+
+.search-bar button {
+    padding: 10px 20px;
+    background-color: #003055;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.search-bar button:hover {
+    background-color: #00457A;
+    color: #fff;
+}
+
+/* ---------- Anmelden neben dem Warenkorb ---------- */
+.user-actions {
+    margin-right: 20px;
+}
+
+.user-actions a {
+    color: #005580;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    transition: color 0.3s ease;
+}
+
+.user-actions a:hover {
+    color: #003055;
+}
+
+.user-actions a i {
+    margin-right: 5px;
+}
+
+/* ---------- Warenkorb ---------- */
+.cart {
+    display: flex;
+    align-items: center;
+}
+
+.cart a {
+    display: flex;
+    align-items: center;
+    color: #005580;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.cart a:hover {
+    color: #003055;
+}
+
+.cart i {
+    font-size: 20px;
+    margin-right: 8px;
+}
+
+.cart-text {
+    font-size: 14px;
+}
+
+/* =======================================
+   Navigation (Mega-Menü)
+   ======================================= */
+nav {
+    background-color: #005580;
+}
+
+nav .container {
+    display: flex;
+    justify-content: center;
+}
+
+.nav-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.nav-links li {
+    position: relative;
+}
+
+.nav-links a {
+    display: block;
+    padding: 15px 20px;
+    color: #fff;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.nav-links a:hover {
+    background-color: #003055;
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    background-color: #fff;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    width: 300px; 
+    padding: 20px;
+    z-index: 1000;
+    border-radius: 8px;
+    color: #333;
+    flex-wrap: wrap;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-column {
+    width: 100%;
+}
+
+.dropdown-column h4 {
+    margin-bottom: 10px;
+    color: #005580;
+    font-size: 18px;
+}
+
+.dropdown-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.dropdown-column li {
+    margin-bottom: 8px;
+}
+
+.dropdown-column a {
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+.dropdown-column a:hover {
+    color: #005580;
+}
+
+.nav-links li a i {
+    margin-left: 5px;
+}
+
+/* =======================================
+   Hero-Banner / Kategorien / Produkte
+   ======================================= */
+main {
+    padding: 40px 0;
+}
+
+.hero-banner {
+    background-image: url("titelbild.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 400px;
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-banner .hero-content {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    color: #fff;
+}
+
+.hero-banner h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.hero-banner p {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.btn-primary {
+    padding: 12px 30px;
+    background-color: #003055;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #00457A;
+    color: #fff;
+}
+
+/* ---------- Kategorienübersicht ---------- */
+.categories-overview {
+    margin-top: 60px;
+    margin-bottom: 60px;
+}
+
+.categories-overview h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 32px;
+    color: #005580;
+}
+
+.categories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 5px;
+}
+
+@media (min-width: 1024px) {
+    .categories-grid {
+        grid-template-columns: repeat(4, 1fr); 
+    }
+}
+
+/* Overlay für Hauptkategorien */
+.category-item {
+    position: relative;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    height: 250px;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.category-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.category-item img {
+    max-width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.category-item h3 {
+    font-size: 20px;
+    margin: 0;
+    padding: 10px 20px;
+    background-color: rgba(0, 50, 100, 0.7);
+    border-radius: 5px;
+    transition: opacity 0.3s ease;
+}
+
+.category-item:hover h3 {
+    opacity: 0; /* Originaltext ausblenden */
+}
+
+.category-item::after {
+    content: "";
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 10px 20px;
+    border-radius: 5px;
+    position: absolute;
+    opacity: 0; /* Anfangs unsichtbar */
+    transition: opacity 0.3s ease;
+}
+
+.category-item:hover::after {
+    content: "Jetzt einkaufen"; /* Text anzeigen */
+    opacity: 1;
+}
+
+.category-item {
+    position: relative;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 85, 128, 0.7); /* Transparenter Hintergrund */
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 10px;
+    font-size: 18px;
+}
+
+.category-item:hover .overlay {
+    opacity: 1;
+}
+
+/* ---------- Featured Products / Sonderangebote ---------- */
+.featured-products {
+    margin-top: 60px;
+}
+
+.featured-products h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 32px;
+    color: #005580;
+}
+
+.featured-products .products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    .featured-products .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .featured-products .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.product-item {
+    position: relative; /* Für das Rabatt-Label erforderlich */
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.product-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
+}
+
+.product-item img {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.product-item h3 {
+    font-size: 22px;
+    font-weight: 700;
+    color: #333;
+    margin: 5px 0;
+}
+
+.product-item .description {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.price-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.current-price {
+    font-size: 20px;
+    color: #005580;
+    font-weight: bold;
+}
+
+.old-price {
+    font-size: 14px;
+    color: #888;
+    text-decoration: line-through;
+}
+
+.discount {
+    font-size: 14px;
+    color: #005580;
+    font-weight: bold;
+    text-align: center;
+}
+
+.price {
+    font-weight: bold;
+    color: #005580;
+    font-size: 18px;
+}
+
+/* Rabatt-Label */
+.discount-label {
+    position: absolute;
+    top: 50px; /* Startet weiter oben über der Box */
+    left: 10px; /* Verschiebung nach links für mehr Überstand */
+    background-color: #005580; /* Auffälliges Rot */
+    color: #fff; /* Weißer Text */
+    font-size: 20px; /* Größerer Text für bessere Lesbarkeit */
+    font-weight: bold;
+    padding: 10px 50px; /* Größeres Padding für längeres Label */
+    transform: rotate(-20deg); /* Diagonale Ausrichtung */
+    transform-origin: left;
+    z-index: 10; /* Oberhalb anderer Inhalte */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Moderner Schatten */
+    border-radius: 15px; /* Wert anpassen für mehr oder weniger Rundung */
+
+}
+
+/* ---------- Top Seller ---------- */
+.top-seller {
+    margin-top: 60px;
+}
+
+.top-seller h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 32px;
+    color: #005580;
+}
+
+.top-seller .products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    .top-seller .products-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .top-seller .products-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* =======================================
+   Trennlinien
+   ======================================= */
+.divider-blue {
+    height: 4px;
+    background-color: #005580;
+    margin: 0;
+}
+
+.divider-black {
+    height: 2px;
+    background-color: #000;
+    margin: 20px 0;
+}
+
+/* =======================================
+   Footer-Bereich
+   ======================================= */
+
+/* --- Wrapper, der den gesamten Footer einfärbt --- */
+.footer-wrapper {
+    background-color: #f8f9fa; /* Leichteres Grau für ein modernes Aussehen */
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif; /* Optional: Ändere die Schriftart für mehr Modernität */
+}
+
+/* --- Footer selbst hat kein zusätzliches BG oder Padding,
+   da alles von .footer-wrapper gesteuert wird --- */
+   footer {
+    padding: 0;
+    margin: 0;
+    background-color: transparent; /* Hintergrundfarbe vom Wrapper übernehmen */
+}
+
+/* ---------- 4-Spalten-Container ---------- */
+.footer-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsivere Spalten */
+    gap: 30px; /* Erhöhter Abstand für bessere Lesbarkeit */
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px 10px; /* Erhöhtes Padding */
+    color: #333;
+}
+
+.footer-section h4 {
+    font-size: 20px; /* Erhöht von 18px */
+    color: #003055; /* Dunkleres Blau für besseren Kontrast */
+    margin-bottom: 20px; /* Erhöhtes Margin */
+    font-weight: 700;
+}
+
+.footer-section p,
+.footer-section ul {
+    font-size: 16px; /* Erhöht von 14px */
+    margin: 0 0 15px;
+    line-height: 1.6;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 8px;
+}
+
+.footer-section ul li a {
+    color: #005580;
+    text-decoration: none;
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+    color: #003055;
+    text-decoration: underline; /* Unterstreichung beim Hover */
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px; /* Erhöhter Abstand */
+    margin-top: 15px;
+}
+
+.social-icons img {
+    width: 50px; /* Erhöhte Größe */
+    height: 50px;
+    transition: transform 0.3s ease;
+}
+
+.social-icons img:hover {
+    transform: scale(1.1); /* Leichte Vergrößerung beim Hover */
+}
+
+/* ---------- Zahlungsarten & Versandarten ---------- */
+.footer-payment-shipping {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px 0; /* Erhöhtes Padding */
+    background-color: transparent;
+}
+
+.payment-methods,
+.shipping-methods {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Abstand hinzugefügt */
+}
+
+.payment-methods h4,
+.shipping-methods h4 {
+    margin-right: 10px; /* Angepasstes Margin */
+    font-size: 20px; /* Erhöht von 18px */
+    color: #003055;
+    font-weight: 700;
+}
+
+.payment-methods img,
+.shipping-methods img {
+    height: 50px; /* Erhöhte Größe */
+    transition: transform 0.3s ease;
+}
+
+.payment-methods img:hover,
+.shipping-methods img:hover {
+    transform: scale(1.1); /* Leichte Vergrößerung beim Hover */
+}
+
+/* ---------- Copyright ---------- */
+
+.copyright {
+    background-color: #003055; /* Dunkelblauer Hintergrund */
+    padding: 3px;
+    text-align: center; /* Zentrierter Text */
+    font-size: 12px;
+    color: #fff; /* Weißer Text */
+    margin: 0 auto; /* Zentriert den Bereich */
+}
+
+/* =======================================
+   Responsive Design Anpassungen
+   ======================================= */
+/* ---------- Allgemein ---------- */
+@media (max-width: 1024px) {
+    .top-bar .right-info {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .top-bar .left-info {
+        display: none;
+    }
+}
+
+/* ---------- Suchleiste mobil ---------- */
+.search-mobile {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .main-header .container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .search-bar {
+        width: 100%;
+        margin: 10px 0;
+        display: none;
+    }
+
+    .search-bar.active {
+        display: block;
+    }
+
+    .search-mobile {
+        display: block;
+    }
+
+    nav .container {
+        overflow-x: auto;
+    }
+
+    .nav-links {
+        flex-wrap: nowrap;
+    }
+
+    .nav-links li {
+        flex: 0 0 auto;
+    }
+
+    .dropdown-content {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .dropdown-column {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: none;
+    }
+
+    .dropdown.active .dropdown-content {
+        display: block;
+    }
+}
+
+/* ---------- Footer mobil ---------- */
+@media (max-width: 768px) {
+    .footer-container {
+        grid-template-columns: 1fr; 
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .footer-payment-shipping {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px;
+    }
+
+    .payment-methods, 
+    .shipping-methods {
+        margin-bottom: 20px;
+    }
+
+    .payment-methods h4,
+    .shipping-methods h4 {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .payment-methods img,
+    .shipping-methods img {
+         margin-right: 0;
+         margin-bottom: 10px;
+         height: 40px;
+     }
+
+     .social-icons img {
+        width: 30px;
+        height: 30px;
+    }
+}
